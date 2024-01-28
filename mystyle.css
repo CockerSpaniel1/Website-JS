@@ -1,0 +1,44 @@
+html{
+    font-family: 'Carattere', cursive;
+/*font-family: 'Bree Serif', serif;
+font-family: 'Carattere', cursive;
+font-family: 'Italianno', cursive;
+font-family: 'Modak', cursive;
+font-family: 'MonteCarlo', cursive;
+font-family: 'Noto Sans TC', sans-serif;
+font-family: 'Open Sans', sans-serif;*/}
+body{margin:0px;}
+header{
+width: 100;
+height:25vh;
+background-image:url("images/coffee01.jpg");
+background-size:cover;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+h1{color:wheat;
+font-family: 'Italianno', cursive;
+font-size :5rem;
+/*text-align:center;
+background-image:url("images/coffee01.jpg");
+background-size:cover*/;}
+main{
+margin:3rem;
+}
+p{color:darkgreen;}
+footer{
+position: fixed;
+bottom:0px;
+left:0px;
+width:100%;
+height:3vh;
+text-align: center;
+
+background-color:lightgray;
+color:gray;
+}
+/* #googleFont {
+font-family: 'Noto Sans TC', sans-serif;
+} */
