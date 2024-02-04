@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>員工健康管理系統</h1>
+    <hr>
+    <input type="text" id="name" placeholder="姓名"><br>
+    <input type="number" id="h" placeholder="身高(公分)"><br>
+    <input type="number" id="w" placeholder="體重(公斤)"><br>
+    <input type="radio" name="gender" id="male">男
+    <input type="radio" name="gender" id="female">女<hr>
+    <button onclick="standard()">CALC</button>
+    <p id="result"></p>
+
+
+    <script>
+        function standard(){
+            var name = document.getElementById("name").value;
+            var h = document.getElementById("h").value;
+            var w = document.getElementById("w").value;
+            var gender="";
+
+            if(document.getElementById('male').checked){
+                gender="男";
+            } else{
+                gender="女";
+            }
+
+            document.getElementById("result").innerHTML =   "姓名: " + name + "<br>"
+                                                            +"身高: " + h +"公分<br>"
+                                                            +"體重: " + w +"公斤<br>"
+                                                            +"性別: " + gender +"<br>";
+        }
+            
+    </script>
+</body>
+</html>
