@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    table{
+        width:100%; 
+        border:5px goldenrod solid;
+        border-collapse: collapse;}
+    td{border: 3px yellowgreen solid;
+    padding:1.2em}
+    </style>
+</head>
+<body>
+    <h1>九九乘法表</h1>
+    <p id="result"></p>
+    <!-- <table> -->
+    <script>
+        document.write("<table>")
+        for(i=1; i<=9; i++){
+           document.write("<tr onmouseover='changeColor(this)' onmouseout='clearColor(this)' >")
+           for(j=1; j<=9 ; j++){
+            document.write("<td onmouseover='changeFont(this)' onmouseout='clearFont(this)'>")
+            var k = i * j; 
+            document.write(i + " x " + j + "=" + k + "</td>")
+           }
+           document.write("</tr>")
+        }
+        document.write("</table>");
+
+        function changeColor(obj){
+            obj.style.backgroundColor = "yellowgreen";
+
+        }
+        function clearColor(obj){
+            obj.style.backgroundColor = "inherit";
+
+        }
+        function changeFont(obj){
+            obj.style.color = "red";
+            obj.style.cursor='pointer';
+            document.getElementById("result").innerHTML = obj.innerHTML;
+
+        }
+        function clearFont(obj){
+            obj.style.color = "inherit";
+
+        }
+    </script>
+    <!-- </table> -->
+</body>
+</html>

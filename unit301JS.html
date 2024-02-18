@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>員工健康管理系統</h1>
+    <hr>
+    <input type="text" id="name" placeholder="姓名" value="雪納瑞"><br>
+    <input type="number" id="h" placeholder="身高(公分)" value=180><br>
+    <input type="range" id="w" placeholder="體重(公斤)" value=65 oninput="sliderChange(this.value)" max=120><output id="sliderVal"> </output><br>
+    <input type="radio" name="gender" id="male" checked>男
+    <input type="radio" name="gender" id="female">女<hr>
+    <button onclick="standard()">標準體重</button>
+    <button onclick="BMI()">身體質量指數</button>
+    <p id="result"></p>
+
+
+    <script>
+        function standard(){
+            var name = document.getElementById("name").value;
+            var h = document.getElementById("h").value;
+            var w = document.getElementById("w").value;
+            var gender="";
+            var std=0.0;
+            var up=0.0;
+            var down=0.0;
+            var warning ="";
+
+            if(document.getElementById('male').checked){
+                gender="男";
+                std = (h - 80) * 0.7;
+            } else{
+                gender="女";
+                std = (h - 70) * 0.6;
+            }
+            up = std * 1.1;
+            down = std * 0.9;
+            
+            if (w > up){
+                warning="過重";
+            } else if (w < down){
+                warning="過輕";
+            } else {warning="正常體重" ;
+            }
+
+
+            document.getElementById("result").innerHTML =   "姓名: " + name + "<br>"
+                                                            +"身高: " + h +"公分<br>"
+                                                            +"體重: " + w +"公斤<br>"
+                                                            +"性別: " + gender +"<br>"
+                                                            +"標準體重: " + std + "公斤<br>"
+                                                            +"體重上限: " + up + "公斤<br>"
+                                                            +"體重下限: " + down + "公斤<br>"
+                                                            +"體重建議: " + warning;
+        }
+            
+
+        function BMI(){
+            var name = document.getElementById("name").value;
+            var h = document.getElementById("h").value;
+            var w = document.getElementById("w").value;
+            var gender="";
+            var std=0.0;
+            var up=0.0;
+            var down=0.0;
+            var warning ="";
+            var bmi = w/Math.pow(h/100, 2)
+
+            if (bmi < 18.5){
+                warning="體重過輕";
+            } 
+            else if (bmi < 24){
+                warning="正常範圍";
+            }
+            else if (bmi < 27){
+                warning="過重";
+            }
+            else if (bmi < 30){
+                warning="輕度肥胖";
+            }
+            else if (bmi < 35){
+                warning="中度肥胖";
+            }        
+            else {warning="重度肥胖" ;
+            }
+
+
+            document.getElementById("result").innerHTML =   "姓名: " + name + "<br>"
+                                                            +"身高: " + h +"公分<br>"
+                                                            +"體重: " + w +"公斤<br>"
+                                                            +"性別: " + gender +"<br>"
+                                                            +"BMI: " + bmi.toFixed(1) + "<br>"
+                                                            +"體重建議: " + warning;
+            
+
+            }
+
+            function sliderChange(val) {
+            document.getElementById('sliderVal').innerHTML = val;
+            }
+
+    </script>
+</body>
+</html>

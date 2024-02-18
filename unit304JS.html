@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <h1>請輸入2個數值，進行四則運算</h1>
+<input type="number" id="m" placeholder="請輸入數值1" ><br>
+<input type="number" id="n" placeholder="請輸入數值2" ><br>
+<input type="radio" name="math" value="+" id="r1" onclick="calc(this.value)">+
+<input type="radio" name="math" value="-" id="r2"  onclick="calc(this.value)">-
+<input type="radio" name="math" value="x" id="r3"  onclick="calc(this.value)">x
+<input type="radio" name="math" value="/" id="r4"  onclick="calc(this.value)">/
+<hr>
+<p id="result"></p>
+</body>
+<script>
+function calc(obj){
+    var m =parseInt(document.getElementById('m').value);
+    var n =parseInt(document.getElementById('n').value);
+    result = 0.0;
+
+    switch(obj){
+        case "+":
+            result=m+n;
+            break;
+        case "-":
+            result=m-n;
+            break;
+        case "x":
+            result= m * n;
+            break;
+        case "/":
+            result=m/n;
+            break;
+
+    }
+    document.getElementById("result").innerHTML= m + obj + n + "=" + result;
+
+}
+</script>
+</html>

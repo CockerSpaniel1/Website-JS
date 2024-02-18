@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>存錢筒</h1>
+    <hr>
+    <img src="images/pig.png" style="cursor:pointer;" onmouseover="pig()" onmouseout="clearResult()">
+    <p id="result"></p>
+    <script>
+        function pig(){
+            var result = document.getElementById("result");
+            var sum=0;
+            for(i=1;i<=10;i++){
+                
+            result.innerHTML += sum +" + " + i + " = ";
+            sum += i;
+            result.innerHTML += sum + "<br>";
+        }
+        result.innerHTML +="1+2+3+.. +10=" + sum +"元<br>";
+    }
+    function clearResult(){
+        document.querySelector("#result").innerHTML = "";
+    }
+
+
+    </script>
+</body>
+</html>
