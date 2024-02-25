@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        @keyframes moveRight{
+            from{transform:translateX(0px);}
+            to{transform:translateX(200px);}
+        }
+        .myAnimated{
+            width:50px;
+            background-color:lightcoral;
+            height:50px;
+            animation:moveRight 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="myAnimated"></div>
+</body>
+</html>

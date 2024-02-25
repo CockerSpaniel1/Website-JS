@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{box-sizing:border-box;}
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            /* height:100vh; */
+            margin:0px;
+        }
+        #demoTxt{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            
+        } 
+        #demo{margin-top: 3rem;}
+
+        table{ margin:auto; 
+            background-color: burlywood; 
+            border-spacing: 1em 1em;
+        }
+        
+        td{width:10%;height: 10%;}
+        img{ 
+            width:100%;
+            height:auto;
+            border:1px #ccc solid; 
+            border-radius: 0.5rem;
+            padding:0.8rem;
+        }
+        td img:hover{
+            cursor:pointer;
+            background-color: white;
+            transform: scale(2.0);
+            filter:saturate(200%);
+            box-shadow:2px 0px 3px #ccc,0px 2px 3px #ccc,-2px 0px 3px #ccc,0px -2px 3px #ccc;;
+        }
+        @media (max-width:991px){
+            #demoTxt{margin-bottom: 2em;width:90%;}
+            #demo{width:60%;}
+            table{width:90%;}
+            img{width:80%;}
+        }
+        @media (min-width:992px){
+            #demoTxt{margin-bottom: 1em;width:60%;}
+            #demo{width:75%;}
+            table{width:75%;}
+            img{width:75%;}
+        }
+        @media (min-width:1200px){
+            #demoTxt{margin-bottom: 1em;}
+            #demo{width:30%;}
+            table{width:100%;}
+
+        }
+    </style>
+</head>
+<body onload="coffee()">
+    <p id="demoTxt">咖啡飲品</p>
+    <div id="demo">
+    <script>
+        function coffee(){
+        var demo=document.getElementById("demo");
+        var str = "";
+        var k=0;
+        str += "<table>";
+
+        for(var i=1; i<=3; i++){
+            str += "<tr>";
+
+           for(var j=1; j<=3 ; j++){
+                k++;
+                str += "<td><img src='./images/drink/" +k + ".jpg'></td>";
+           }
+           str += "</tr>";
+        }
+        str += "</table>";
+        demo.innerHTML = str;
+
+        }
+    </script>
+    </div>
+
+</body>
+</html>

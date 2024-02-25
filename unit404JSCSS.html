@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{box-sizing:border-box;}
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            /* height:100vh; */
+            margin:0px;
+        }
+        #demoTxt{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            
+        } 
+        #demo{margin-top: 3rem;}
+
+        table{ margin:auto; 
+            background-color: burlywood; 
+            border-spacing: 1em 1em;
+        }
+        
+        td{width:10%;height: 10%;}
+        img{ 
+            width:100%;
+            height:auto;
+            border:1px #ccc solid; 
+            border-radius: 0.5rem;
+            padding:0.8rem;
+        }
+        td img:hover{
+            cursor:pointer;
+            background-color: white;
+            transform: scale(2.0);
+            filter:saturate(200%);
+            box-shadow:2px 0px 3px #ccc,0px 2px 3px #ccc,-2px 0px 3px #ccc,0px -2px 3px #ccc;;
+        }
+        @media (max-width:991px){
+            #demoTxt{margin-bottom: 2em;width:90%;}
+            #demo{width:60%;}
+            table{width:90%;}
+            img{width:80%;}
+        }
+        @media (min-width:992px){
+            #demoTxt{margin-bottom: 1em;width:60%;}
+            #demo{width:75%;}
+            table{width:75%;}
+            img{width:75%;}
+        }
+        @media (min-width:1200px){
+            #demoTxt{margin-bottom: 1em;}
+            #demo{width:30%;}
+            table{width:100%;}
+
+        }
+    </style>
+</head>
+<body onload="coffee()">
+    <p id="demoTxt">咖啡飲品</p>
+    <div id="demo">
+    <script>
+        function coffee(){
+        var demo=document.getElementById("demo");
+        var str = "";
+        var k=0;
+        str += "<table>";
+
+        for(var i=1; i<=3; i++){
+            str += "<tr>";
+
+           for(var j=1; j<=3 ; j++){
+                k++;
+                // str += "<td><img src='./images/drink/" +k + ".jpg'></td>";
+                str += "<td><img src='./images/drink/" +k + ".jpg' id='img"+ k+"' onclick='getId(this)' ></td>";
+            }
+           str += "</tr>";
+        }
+        str += "</table>";
+        demo.innerHTML = str;
+
+        }
+        function getId(obj){
+            var demoTxt = document.getElementById("demoTxt");
+            var str = obj.id;
+            var n = str.substr(3);
+
+            var desp = new Array(
+                "美式咖啡（Americano）：以熱水稀釋濃縮咖啡製成，口感較淡。",
+                "濃縮咖啡（Espresso）：約為1盎司的濃縮咖啡，是許多其他咖啡飲品的基礎。",
+                "卡布奇諾冰（Iced Cappuccino）：冷卻的卡布奇諾，通常有更多的冰塊。",
+                "拿鐵（Latte）：由濃縮咖啡、蒸奶和少量泡沫奶製成，味道平衡，奶味較濃。",
+                "摩卡（Mocha）：以濃縮咖啡、巧克力和蒸奶製成，帶有濃厚的巧克力風味。",
+                "冰滴咖啡（Cold Brew）：使用一種緩慢滴水的方法來冷萃咖啡。",
+                "焦糖瑪奇朵（Caramel Macchiato）：有著濃郁的咖啡風味和甜美的焦糖口感。",
+                "卡布奇諾（Cappuccino）：由等量的濃縮咖啡、蒸奶和泡沫奶製成，泡沫奶較多，口感濃郁。",
+                "巧克力咖啡（Chocolate Coffee）：加入巧克力糖漿或可可粉，創造出濃郁的巧克力風味。"
+            )
+            demoTxt.innerHTML=desp[n-1];
+        }
+
+    </script>
+    </div>
+
+</body>
+</html>

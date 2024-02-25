@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{ width:200px;}
+    </style>
+</head>
+<body onload="coffee()">
+    <p id="domoTxt">咖啡飲品</p>
+    <div id="demo"></div>
+    <script>
+        function coffee(){
+        var demo=document.getElementById("demo");
+        var str = "";
+        var k=0;
+        str += "<table>";
+
+        for(var i=1; i<=3; i++){
+            str += "<tr>";
+
+           for(var j=1; j<=3 ; j++){
+                k++;
+                str += "<td><img src='./images/drink/" +k + ".jpg'></td>";
+           }
+           str += "</tr>";
+        }
+        str += "</table>";
+        demo.innerHTML = str;
+
+        }
+    </script>
+</body>
+</html>

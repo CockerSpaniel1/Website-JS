@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{width:60%;}
+        table {width:100%; border:6px green solid; border-collapse:collapse;}
+        td{padding:0.8rem; border:3px goldenrod solid;text-align:center;}
+    </style>
+</head>
+<body>
+    <script>
+    var coffee =new Array(["arabica","阿拉比卡咖啡","原產於東非伊索比亞南部的阿比西 尼亞高原，現今沿海尚有野生種。",500],
+        ["robusta","羅布斯塔咖啡","羅布斯塔咖啡屬於剛果咖啡的突變 種，原產於西非剛果，本種有缺乏香氣之 憾，苦味較強，酸味不足。",450],
+        ["liberia","利比亞咖啡","原產於西非利比亞，本種香味不佳， 苦味較強。除少數生產國自己消費外，只 有歐洲人飲用利比亞咖啡。",350])
+
+    document.write(coffee[0][0] + "<br>");
+    document.write(coffee[0][1] + "<br>");
+    document.write(coffee[0][2] + "<br>");
+    document.write(coffee[0][3] + "<br><hr>");
+
+    document.write(coffee[1][0] + "<br>");
+    document.write(coffee[1][1] + "<br>");
+    document.write(coffee[1][2] + "<br>");
+    document.write(coffee[1][3] + "<br><hr>");
+
+    document.write(coffee[2][0] + "<br>");
+    document.write(coffee[2][1] + "<br>");
+    document.write(coffee[2][2] + "<br>");
+    document.write(coffee[2][3] + "<br><hr>");
+
+
+    document.write("<table>");
+    for(i=0;i<coffee.length;i++){
+        document.write("<tr>");
+
+        for(j=0;j<coffee[i].length;j++){
+            if (j==0){
+                document.write("<td><img src='images/" + coffee[i][j] + ".png' ></td>")
+            } else{
+            document.write("<td>"+coffee[i][j]+"</td>")
+            }
+        }
+        document.write("</tr>");
+    }
+
+
+    </script>
+</body>
+</html>

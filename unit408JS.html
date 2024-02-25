@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>body{text-align:center;}
+    button{width:100%;padding:0.8rem;font-size:1.5rem;}</style>
+</head>
+<body>
+    <button id="btn" onclick="playStop()">PLAY</button>
+    <img src="images/dog/dog0001.png" id="imgDog"><br>
+    <p id="info">第一張 | dog0001.png</p>
+    <script>
+        var i=0;
+        var str = "";
+        var j=0;
+        var flag = false;
+
+        function dog(){
+            if(i<9){
+                i++
+                str="dog000"+ i;
+            } else if(i<68){
+                i++
+                str="dog00"+ i;
+            }else{
+                i = 1
+                str="dog000"+ i;
+            }
+            imgDog.src = "images/dog/" + str +".png";
+            document.getElementById("info").innerHTML = "第" + i +"張 | "+ str+".png";
+        };
+
+        function playStop(){
+            if(!flag){
+                j=window.setInterval(dog,70);
+                console.log("A"+j);
+                document.getElementById("btn").innerHTML = "STOP";
+                flag=true;
+            } else {
+                window.clearInterval(j);
+                console.log(j);
+                document.getElementById("btn").innerHTML = "PLAY";
+                flag=false;
+            }
+
+        }
+        setInterval(dog, 50)
+
+
+    </script>
+</body>
+</html>
