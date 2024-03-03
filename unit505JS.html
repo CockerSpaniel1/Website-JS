@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+        *{box-sizing: border-box;}
+        div{
+            border-radius:50%;
+            width:200px;
+            height:200px;
+            display:inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin:1.25rem;
+            background-size: contain;
+
+        }
+        div:nth-of-type(1){
+            background-image: url(images/drink/1.jpg);
+        }
+        div:nth-of-type(2){
+            background-image: url(images/drink/2.jpg);
+        }
+        div:nth-of-type(3){
+            background-image: url(images/drink/3.jpg);
+        }
+        div:nth-of-type(4){
+            background-image: url(images/drink/4.jpg);
+        }
+
+        span{color:black;
+            
+        background-color:lightgoldenrodyellow;
+    padding:0.5em}
+    div:hover{
+        border:3px greenyellow solid;
+        cursor:pointer;
+        transform: scale(1.2);
+        transition: transform 1s ease-in-out;
+    }
+    p{ 
+       width: 200px;
+        display: inline-flex;
+        margin: 1.25rem;
+    }
+    </style>
+    </head>
+
+    <body>
+
+        <h1>函數的四種基本狀態</h1>
+        <hr>
+        <div onclick="myfun()"><span>無參數 無傳回值</span></div>
+        <div onclick="youfun('米格魯',10)"><span>有參數 無傳回值</span></div>
+        <div
+            onclick="document.querySelector('p:nth-of-type(3)').innerHTML=hisfun()">
+            <span>無參數 有傳回值</span></div>
+        <div
+            onclick="document.querySelector('p:nth-of-type(4)').innerHTML=herfun('米克斯',20)"><span>有參數
+                有傳回值</span></div>
+        <hr>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <script>
+        function myfun(){
+            document.querySelector("p:nth-of-type(1)").innerHTML="美式咖啡，買一送一"
+        }
+        function youfun(name,qty){
+            document.querySelector("p:nth-of-type(2)").innerHTML= name +" 您訂購了" + qty+"杯，濃縮咖啡!"
+        }
+        function hisfun(){
+            return "卡布奇諾，香醇可可"
+        }
+        function herfun(name, qty){
+            var price =120;
+            var total =price * qty;
+            var str = name +" 您訂購了" + qty+"杯拿鐵，總計為"+total+"元";
+            return str
+            
+        }
+    </script>
+
+    </body>
+</html>

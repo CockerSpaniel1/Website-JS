@@ -35,18 +35,18 @@
         function playStop(){
             if(!flag){
                 j=window.setInterval(dog,70);
-                console.log("A"+j);
+                console.log("START"+j);
                 document.getElementById("btn").innerHTML = "STOP";
                 flag=true;
             } else {
                 window.clearInterval(j);
-                console.log(j);
+                console.log("STOP");
                 document.getElementById("btn").innerHTML = "PLAY";
                 flag=false;
             }
 
         }
-        setInterval(dog, 50)
+        //setInterval(dog, 50)
 
 
     </script>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            height:100vh;
+            margin: 0px;
+        }
+        div{
+            width:200px;
+            height:200px;
+            cursor:pointer;
+            border-radius: 50%;
+            position:relative;
+        } 
+        div:not(.myAnimated){
+            background-image: url(images/drink/2.jpg);
+            border:1.25em gold solid;
+            background-size: contain;
+        } 
+        .myAnimated{
+            position:absolute;
+            animation:aroundCircle 5s linear infinite;
+            transition:transform 0.3s ease;
+        } 
+        div:hover .myAnimated{
+            animation-play-state: paused;
+        }
+
+        @keyframes aroundCircle{
+            0%{transform:rotate(0deg) translate(150px);}
+            25%{transform:rotate(90deg)translate(150px);}
+            50%{transform:rotate(180deg)translate(150px);}
+            75%{transform:rotate(270deg)translate(150px);} 
+            100%{transform:rotate(360deg)translate(150px);} 
+        }
+        /*div:nth-of-type(1) img{
+            width:100%;
+        }
+
+        div:nth-of-type(2) {
+           position: fixed;
+           top:50px;
+           left:50px;
+        }
+
+        div:nth-of-type(2) img{
+            width:200px;
+            height:200px;
+        } */
+
+    </style>
+</head>
+<body>
+    <div >
+        <!-- <img src="images/icons/1.png"> -->
+        <div class="myAnimated">
+            <img src="images/icon3.png">
+        </div>
+    </div>
+
+</body>
+</html>

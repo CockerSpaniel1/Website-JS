@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            body {margin:0px;
+            padding:0px}
+    div,button{
+        width:100%;
+        padding:0.8em;
+        margin:0.8em;
+        border:1px green solid;
+        border-radius: 8px;
+        display:flex;
+        justify-content: center;
+        }
+        img{position: absolute;top: 50%;left: 50%;width:30%}
+        </style>
+    </head>
+    <body>
+        <h3></h3>
+        <div id="divMorning">Good Morning</div>
+        <div id="divAfternoon">Good Afternoon</div>
+        <div id="divLucky">Lucky Number</div>
+        <button id="btnStop" style="display:none">STOP</button>
+        <!-- <img src="images/wheel.jpg"> -->
+    </body>
+    <script>
+        
+        const divMorning=document.getElementById("divMorning")
+        const divAfternoon=document.getElementById("divAfternoon")
+        const divLucky=document.getElementById("divLucky")
+        const btnStop=document.getElementById("btnStop")
+
+        divMorning.onclick=function(){
+            window.alert("OHiYo!!")
+        }
+        divMorning.onmouseover=function(){this.innerHTML="早安";this.style.cursor="pointer";setBG(this)}
+        divMorning.onmouseout=function(){this.innerHTML="Good Morning";clearBG(this)}
+
+        divAfternoon.addEventListener("click",greeting)
+        divAfternoon.addEventListener("mouseenter",function(){
+            this.innerHTML="午安";
+            this.style.cursor="pointer";
+            setBG(this)
+        })
+        divAfternoon.addEventListener("mouseleave",function(){
+            this.innerHTML="Good Afternoon";
+            
+            clearBG(this)
+        })
+
+        divLucky.addEventListener("mouseenter",function(){
+            
+            btnStop.style.display="block";
+            this.style.height = "30vh";
+            this.style.fontSize = "5em";
+        })
+     
+        divLucky.addEventListener("mousemove",getNumber)
+        btnStop.addEventListener("click",removeEventListener)
+        divLucky.addEventListener("dblclick",removeEventListener)
+
+        function setBG(obj){
+            obj.style.backgroundColor="tomato";   
+        }
+        function clearBG(obj){
+            obj.style.backgroundColor="inherit";   
+        }
+        function greeting(){
+            window.alert("Konichiwa")
+        }
+
+        function getNumber(){
+            var num =Math.floor(Math.random()*49)+1;
+            divLucky.innerHTML = num;
+        }
+        function removeEventListener(){
+            divLucky.removeEventListener("mousemove",getNumber)
+        }
+      
+        
+        var r=Math.random();
+        var c=Math.ceil(r*48)+1 //r = 0 ~ 47.99, c = (0 ~ 48) + 1  = (1 ~ 49)
+        var f=Math.floor(r*49)+1 //r = 0 ~ 48.99, c = (0 ~ 48) + 1 = (1 ~ 49)  
+        console.log(r)
+        console.log(c)
+        console.log(Math.ceil(0))
+    </script>
+</html>
