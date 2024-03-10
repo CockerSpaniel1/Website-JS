@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+        var str="Good Morning";
+        str="早安";
+        var str="歐嗨優";
+        console.log(str);   //歐嗨優
+
+        let str2="Good Afternoon";
+        str2="午安";
+        //let str2="扣尼吉哇";    //'str2' has already been declared 不可以相同變數名稱再宣告
+        console.log(str2);  //午安
+
+        const str3="Good Evening";
+        //str3="晚安";    //常數的值是不可變,故不可重新指派
+        //const str3="空八哇";    //'str3' has already been declared 不可以相同常數名稱再宣告
+        console.log(str3);  //Good Evening
+        
+        var i=100;
+        let j=5;
+        const PI = 3.14 ;
+        
+        console.log("----------------------------------------------------")
+        console.log("i="+i); 
+        console.log("j="+j); 
+        console.log("PI="+PI); 
+        {
+            var i = 200
+            let j = 10
+            const PI = 3.14159
+
+            console.log("----------------------------------------------------")
+            console.log("i="+i); 
+            console.log("j="+j); 
+            console.log("PI="+PI); 
+        }
+
+        console.log("----------------------------------------------------")
+        console.log("i="+i); 
+        console.log("j="+j); 
+        console.log("PI="+PI); 
+    </script>
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript XHR</title>
+
+        <style>
+
+    </style>
+    </head>
+    <body>
+        <button id="btn">LOAD</button>
+        <div id="demo"></div>
+        <script>
+        // demo = document.getElementById("demo");
+        btn.onclick=function(){
+            loadAJAX();
+        }
+
+        function loadAJAX(){
+            var url="movie.json";   //要載入的檔案
+            var xhr=new XMLHttpRequest();   //宣告XHR 物件變數,透過此物件存取伺服器的資源
+            xhr.onreadystatechange=function(){
+                //readyStae表示完成下載操作,status 200 請求成功
+                if(xhr.readyState===4 && this.status===200){
+                    var obj=xhr.response;   //物件型別
+                    var str = "";
+                    // console.log(obj)
+
+                    demo.innerHTML=JSON.stringify(obj);   
+                    demo.innerHTML += "<hr>";
+                    str="<hr>英文名稱: " + obj['engName'] + "<br>" 
+                        +"中文名稱: " + obj['chiName'] + "<br>" 
+                        +"上映時間: " + obj['release'] + "<br>" 
+                        +"電影長度: " + obj['length'] + "<br>" 
+                        + "發行公司: " + obj['director'] + "<br>" 
+
+                    str += "卡司<ul>";
+                        for(var i=0;i<obj['cast'].length;i++){
+                            str += "<li>" + obj['cast'][i] + "</li>";
+                        }      
+                    str += "</ul>";                      
+                    demo.innerHTML += str;
+                }
+                
+            }
+            xhr.responseType = "json";
+            xhr.open('get',url,true);   //初始化請求,方法,url,非同步與否,預設為true
+            xhr.send(); //發送請求
+
+        }
+
+    </script>
+    </body>
+</html>

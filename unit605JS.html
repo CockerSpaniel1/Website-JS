@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript XHR</title>
+
+    </head>
+    <body onload="loadAJAX()">
+        <div id="demo"></div>
+        <script>
+
+   
+
+        function loadAJAX(){
+            var url="unit201.html";   //要載入的檔案
+            var xhr=new XMLHttpRequest();   //宣告XHR 物件變數,透過此物件存取伺服器的資源
+            xhr.onreadystatechange=function(){
+                //readyStae表示完成下載操作,status 200 請求成功
+                
+                if(xhr.readyState===4 && this.status===200){
+                    var obj=xhr.response;   //物件型別
+                    demo.innerHTML=xhr.responseText;    //傳回文字內容,若請求失敗,則傳回null
+                }
+            }
+
+            xhr.open('get',url,true);   //初始化請求,方法,url,非同步與否,預設為true
+            xhr.send(); //發送請求
+
+        }
+
+    </script>
+    </body>
+</html>

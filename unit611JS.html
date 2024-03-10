@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <input type="text" id="coffee" placeholder="咖啡名稱"><br>
+        <input type="number" id="qty" placeholder="訂購數量"><br>
+        <button onclick="setData()">SET</button>
+        <button onclick="getData()">GET</button>
+        <button onclick="clearsessionStorage()">CLEAR</button><br>
+        <a href="unit612JS.html">連結至另一頁，查看Web sessionStorage</a><br>
+        <id id="demo"></id>
+        <script>
+        function setData(){
+            window.sessionStorage.setItem("coffee",coffee.value)
+            window.sessionStorage.setItem("qty",qty.value)
+            demo.innerHTML = "set OK"
+        }
+        function getData(){
+            var c = window.sessionStorage.getItem("coffee",coffee.value)
+            var q = window.sessionStorage.getItem("qty",qty.value);
+
+            demo.innerHTML = "咖啡品項: " + c + "<br>"
+                            + "訂購數量: " + q + "<br>"
+        }
+
+        function clearsessionStorage(){
+            window.sessionStorage.clear();
+            demo.innerHTML = "clear sessionStorage OK";
+        }
+    </script>
+    </body>
+</html>

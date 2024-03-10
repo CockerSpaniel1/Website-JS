@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="demo"></div>
+        <script>
+        class Employee{
+            constructor(id, name ,dept,salary){
+                this.id = id;
+                this.name = name;
+                this.dept = dept;
+                this.salary = salary
+            }
+            showEmp(){
+                console.log("員工編號: " + this.id )
+                console.log("員工姓名: " + this.name );
+                console.log("所屬部門: " + this.dept);
+                console.log("基本薪資: " + this.salary );
+            }
+            getEmpInfo(){
+                return  "員工編號: " + this.id + "<br>"
+                        + "員工姓名: " + this.name + "<br>"
+                        + "所屬部門: " + this.dept + "<br>"
+                        + "基本薪資: " + this.salary + "<br>"
+            }
+            setId(id){
+                this.id = id
+            }
+        
+            setName(name){
+                this.name = name;
+            }
+        
+            setDept(dept){
+                this.dept = dept;
+            }
+        
+            setSalary(salary){
+                this.salary = salary;
+            }
+            getId(){
+                return this.id
+            }
+        
+            getName(){
+                return this.name 
+            }
+        
+            getDept(){
+                return this.dept 
+            }
+        
+            getSalary(){
+                return this.salary
+            }
+  
+        }
+        var emp = new Employee(1, "艾呆丸","資訊室" ,27000);
+        emp.showEmp()
+
+        demo.innerHTML = emp.getEmpInfo()
+
+        demo.innerHTML += "<hr>";
+        emp.setDept("財務部")
+        emp.setSalary(37000)
+        
+        demo.innerHTML += "所屬部門: " + emp.getDept() + "<br>"
+                        + "基本薪資: " + emp.getSalary()  ;
+
+    </script>
+    </body>
+</html>

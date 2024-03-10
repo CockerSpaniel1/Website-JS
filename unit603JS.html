@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            div{
+                column-count: 3;
+                column-gap: 1.25em;
+                text-align: justify;
+            }
+        </style>
+    </head>
+    <body>
+        <button id="btn">LOAD</button>
+        <div id="demo"></div>
+        <script>
+          
+        btn =document.getElementById("btn");
+        btn.onclick = function(){
+            console.log("0");
+            loadAJAX();
+        }
+
+        function loadAJAX(){
+            var url="coffee.txt";
+            var xhr = new XMLHttpRequest();
+            console.log("1");
+
+            xhr.onreadystatechange=function(){
+                console.log("1.5");
+
+                if(xhr.readyState ===4 && this.status ===200){
+                    console.log("2");
+                    var obj = xhr.response;
+                    document.getElementById("demo").innerHTML =xhr.responseText;
+                }
+            }
+            xhr.open('get', url , true);
+            xhr.send();
+            console.log("3");
+            
+        }
+    </script>
+
+    </body>
+</html>
