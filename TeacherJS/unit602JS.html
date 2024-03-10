@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript decode</title>
+</head>
+<body>
+
+    <form action="unit602JS.html" method="get">
+        <input type="text" name="name" placeholder="姓名"><br>
+        <input type="email" name="email" placeholder="電子郵件"><br>
+        <input type="text" name="gender" placeholder="性別"><br>
+        <input type="submit" value="SEND">     
+    </form>
+    <div id="demo0"></div>
+    <div id="demo1"></div>
+    <div id="demo2"></div>
+
+    <script>
+
+        function decode(url){
+            var p=url.indexOf('?'); //取得『?』是在url 中的第幾個位置,若此字元,則傳回-1
+            console.log(p); //36
+            if(p!==-1){
+                var str=url.substring(p+1); //傳回『?』之後所有的字串
+                var arrStr=str.split('&');  //將str 以『&』 分割,傳回陣列
+                console.log(str);
+                arrStr.forEach(e=>{
+                    console.log(e);
+                });
+
+            for(var i=0;i<arrStr.length;i++){
+                var pair=arrStr[i].split("=");
+                var key=decodeURIComponent(pair[0]);
+                var value=decodeURIComponent(pair[1]);
+                console.log(i + ":" + key + "->" + value);
+                document.getElementById('demo' +i).innerHTML=value;
+            }
+
+            }
+        }
+
+        var url=window.location.href;
+        console.log(url);
+        decode(url);
+    </script>
+    
+</body>
+</html>

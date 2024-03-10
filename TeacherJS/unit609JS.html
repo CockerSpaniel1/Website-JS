@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Web Storage API</title>
+</head>
+<body>
+    
+    <input type="type" id="coffee" placeholder="咖啡名稱" ><br>
+    <input type="number" id="qty" placeholder="訂購數量"><br>
+    <button onclick="setData()">SET</button>
+    <button onclick="getData()">GET</button>    
+    <button onclick="clearLocalStorage()">CLEAR</button> <br> 
+    <a href="unit610JS.html">連結至另一頁面,查看web localStorage</a><br>
+    <div id="demo"> </div>
+
+    <script>
+        /*
+        
+        localStorage:
+        在瀏覽器關閉並重新打開時資料仍存在
+        儲存沒有過期日期的資料
+        透過JS 或清除瀏器緩存/本地存儲的資料來清除
+        
+        */
+        function setData(){
+            window.localStorage.setItem('coffee',coffee.value);
+            window.localStorage.setItem('qty',qty.value);
+            alert('set Ok');
+        }
+
+        function getData(){
+            var c=window.localStorage.getItem('coffee');
+            var q=window.localStorage.getItem('qty');
+            demo.innerHTML= "咖啡品項：" + c + "<br>"
+                            +"訂購數量：" + q + "<br>";
+        }
+
+        function clearLocalStorage(){
+            window.localStorage.clear();    //清除所有
+            alert("clear localStorage OK");
+        }
+    </script>
+
+</body>
+</html>

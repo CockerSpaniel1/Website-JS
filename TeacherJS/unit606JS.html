@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RWD page</title>
+
+    <style>
+
+        /*所有的元素*/
+        *{
+            box-sizing: border-box;
+        }
+
+        body{
+            margin: 0px;
+        }
+
+
+        nav{
+            background-color: maroon;
+        }
+
+        nav ul{
+            list-style-type: none;
+            margin: 0px;
+            display: inline-flex;
+        }
+
+        nav a{
+            text-decoration: none;
+            color: bisque;
+        }
+
+        nav li{
+            padding: 1.5em;
+        }
+
+        nav li:hover{
+            background-color: green;
+        }
+
+        nav ul:nth-child(2){
+            float: right;
+        }
+
+
+        header{
+        width: 100%;
+        height: 25vh; 
+        background-image: url('images/coffee08.jpg');
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+         }
+
+        h1{
+            color: wheat;    
+            font-size: 5rem;              
+        }
+
+        /* 
+        標籤選擇器 tag selector
+        header{
+
+        } */
+
+        
+
+        /*cell phone*/
+        /*屬性選擇器 attribute selector*/
+        [class *='col-']{
+            width: 100%;
+            float:left;
+            /* border: 1px red solid; */
+            padding: 15px;
+        }
+
+
+
+        /*類別選擇器 class selector*/
+        /*tablet*/
+        @media only screen and (min-width:992px){
+            .col-m-1{width:8.33%;}
+            .col-m-2{width:16.66%;}
+            .col-m-3{width:25.00%;}
+            .col-m-4{width:33.33%;}
+            .col-m-5{width:41.66%;}
+            .col-m-6{width:50.00%;}
+            .col-m-7{width:58.33%;}
+            .col-m-8{width:66.66%;}
+            .col-m-9{width:75.00%;}
+            .col-m-10{width:83.33%;}
+            .col-m-11{width:91.66%;}
+            .col-m-12{width:100.0%;}  
+        }
+
+        @media only screen and (min-width:1200px){
+            .col-1{width:8.33%;}
+            .col-2{width:16.66%;}
+            .col-3{width:25.00%;}
+            .col-4{width:33.33%;}
+            .col-5{width:41.66%;}
+            .col-6{width:50.00%;}
+            .col-7{width:58.33%;}
+            .col-8{width:66.66%;}
+            .col-9{width:75.00%;}
+            .col-10{width:83.33%;}
+            .col-11{width:91.66%;}
+            .col-12{width:100.0%;}  
+        }
+
+        @media only screen and (max-width:991px){
+            
+            nav ul{
+                display:block ;
+                padding: 0px;
+            }
+
+            /* nav ul:nth-child(2){ */
+                nav ul:nth-of-type(2){
+                float: left;
+                width: 100%;
+                background-color: maroon;
+            }
+        }
+
+       
+
+        menu ul{
+            list-style-type: none;
+            padding: 0px;
+        }
+
+        menu li{
+            padding: 8px;
+            border-bottom: 1px brown solid;
+            margin-bottom: 8px;
+        }
+
+        menu li a{
+            text-decoration: none;
+            color: brown;
+        }
+
+        /*虛擬類別選擇器 pseudo-class selector*/
+        menu li:hover{
+            background-color: yellowgreen;           
+            }
+
+
+        iframe{
+            border: none;
+            overflow:auto;
+            width: 100%;
+            height: 45vh;        
+        }    
+
+
+        /*ID 選擇器 ID selector*/
+        #bean{
+            width: 100%;
+            /* border: 5px green double;
+            border-radius:50% */
+        }
+           
+
+        footer{
+            /* position: fixed;
+            bottom: 0px;
+            left: 0px;
+            width: 100%;           
+            height: 3vh;
+            text-align: center;
+            background-color: lightgray;
+            color: gray; */
+            position: fixed;
+            bottom: 0px;
+            left: 0px;
+            display: flex;
+            width: 100%;
+            height: 5vh;
+            background-color: lightgray;
+            color: gray;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body onload="loadAJAX('home')">
+
+    <!-- 導覽列 -->
+    <nav>
+        <ul>
+            <li><a href="#" onclick="loadAJAX('home')">HOME</a></li>
+            <li><a href="#" onclick="loadAJAX('about')">ABOUT US</a></li>
+            <li><a href="#" onclick="loadAJAX('products')">PRODUCTS</a></li>
+            <li><a href="#" onclick="loadAJAX('service')">SERVICE</a></li>            
+            <li><a href="#">FACEBOOK</a></li>            
+        </ul>
+
+        <ul>
+            <li><a href="unit202login.html" target="coffeeFrame">LOGIN</a></li>
+        </ul>
+    </nav>
+
+    <!-- 標頭區 -->
+    <header>
+        <h1>Welcome to Cafe Time</h1>
+    </header>
+
+    <div id="demo"></div>
+
+   
+    <!-- 頁尾區 -->
+    <footer>
+        版權所有 翻拷必究
+    </footer>
+
+    <script>
+        function loadAJAX(page){
+            var url=page + ".html";   //要載入的檔案
+            var xhr=new XMLHttpRequest();   //宣告XHR 物件變數,透過此物件存取伺服器的資源
+            xhr.onreadystatechange=function(){
+                //readyStae表示完成下載操作,status 200 請求成功
+                if(xhr.readyState===4 && this.status===200){
+                    var obj=xhr.response;   //物件型別
+                    //demo.innerHTML=obj;
+                    demo.innerHTML=xhr.responseText;    //傳回文字內容,若請求失敗,則傳回null
+                }
+            }
+
+            xhr.open('get',url,true);   //初始化請求,方法,url,非同步與否,預設為true
+            xhr.send(); //發送請求
+
+        }
+    </script>
+    
+</body>
+</html>
